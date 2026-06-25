@@ -2,17 +2,15 @@
 # versao 1.0 - feito rapido pra entregar antes do prazo
 # autor: equipe antiga
 
-import datetime
 
-SENHA_ADMIN = "1234"  # senha do admin
+SENHA_ADMIN = "1234" 
 
 produtos = []
 
 
-# funcao que adiciona produto
-def add(n, p, q, hist=[]):
-    produtos.append({"nome": n, "preco": p, "qtd": q})
-    hist.append(n)
+def add(nome, preco, quantidade, hist=[]):
+    produtos.append({"nome": nome, "preco": preco, "qtd": quantidade})
+    hist.append(nome)
     print("Produto adicionado!")
 
 
@@ -22,7 +20,7 @@ def vender(nome, quantidade):
             if produtos[i]["qtd"] >= quantidade:
                 produtos[i]["qtd"] = produtos[i]["qtd"] - quantidade
                 total = produtos[i]["preco"] * quantidade
-                # desconto pra compras grandes
+                # desconto pra compras acima de R$100.
                 if total > 100:
                     total = total - total * 0.1
                 print("Venda realizada. Total: " + str(total))
@@ -34,33 +32,24 @@ def vender(nome, quantidade):
     return 0
 
 
-# calcula o total de uma compra (usado no relatorio)
 def calcular_total(preco, quantidade):
-    t = preco * quantidade
-    if t > 200:                 # limite diferente do usado em vender()
-        t = t - t * 0.15        # desconto diferente do usado em vender()
-    return t
+    total = preco * quantidade
+    if total > 200:                 # limite diferente do usado em vender()
+        total = total - total * 0.15        # desconto diferente do usado em vender()
+    return total
 
 
 def listar():
     print("=== PRODUTOS ===")
-    for x in produtos:
-        print(x["nome"] + " - R$" + str(x["preco"]) + " - qtd: " + str(x["qtd"]))
+    for produto in produtos:
+        print(produto["nome"] + " - R$" + str(produto["preco"]) + " - qtd: " + str(produto["qtd"]))
 
 
 def relatorio_estoque_baixo():
     print("=== ESTOQUE BAIXO ===")
-    for x in produtos:
-        if x["qtd"] < 5:        # estoque baixo
-            print(x["nome"] + " esta com estoque baixo (" + str(x["qtd"]) + ")")
-
-
-# funcao antiga, nao usamos mais
-# def exportar():
-#     f = open("dados.txt", "w")
-#     for x in produtos:
-#         f.write(str(x))
-#     f.close()
+    for produto in produtos:
+        if produto["qtd"] < 5:        # estoque baixo
+            print(produto["nome"] + " esta com estoque baixo (" + str(produto["qtd"]) + ")")
 
 
 def relatorio_vendas():
@@ -71,27 +60,27 @@ def relatorio_vendas():
 def menu():
     while True:
         print("\n1-Cadastrar  2-Vender  3-Listar  4-Estoque baixo  5-Admin  0-Sair")
-        op = input("Opcao: ")
-        if op == "1":
-            n = input("Nome: ")
-            p = float(input("Preco: "))
-            q = int(input("Qtd: "))
-            add(n, p, q)
-        elif op == "2":
-            n = input("Nome do produto: ")
-            q = int(input("Quantidade: "))
-            vender(n, q)
-        elif op == "3":
+        opcao = input("Opcao: ")
+        if opcao == "1":
+            nome = input("Nome: ")
+            preco = float(input("Preco: "))
+            quantidade = int(input("Qtd: "))
+            add(nome, preco, quantidade)
+        elif opcao == "2":
+            nome = input("Nome do produto: ")
+            quantidade = int(input("Quantidade: "))
+            vender(nome, quantidade)
+        elif opcao == "3":
             listar()
-        elif op == "4":
+        elif opcao == "4":
             relatorio_estoque_baixo()
-        elif op == "5":
-            s = input("Senha: ")
-            if s == SENHA_ADMIN:
+        elif opcao == "5":
+            senha = input("Senha: ")
+            if senha == SENHA_ADMIN:
                 print("Acesso liberado")
             else:
                 print("Senha errada")
-        elif op == "0":
+        elif opcao == "0":
             break
         else:
             print("Opcao invalida")
