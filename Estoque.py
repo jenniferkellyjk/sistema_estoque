@@ -48,8 +48,8 @@ def listar():
 def relatorio_estoque_baixo():
     print("=== ESTOQUE BAIXO ===")
     for produto in produtos:
-        if produto["qtd"] < 5:        # estoque baixo
-            print(produto["nome"] + " esta com estoque baixo (" + str(produto["qtd"]) + ")")
+        if produto["qtd"] < 5:       
+            print(produto["nome"] + " está com estoque baixo (" + str(produto["qtd"]) + ")")
 
 
 def relatorio_vendas():
