@@ -15,6 +15,14 @@ O sistema tem como objetivo gerenciar produtos e vendas em um pequeno estoque, p
 
 > Observação: o relatório de vendas ainda não foi implementado.
 
+## Como executar
+
+Certifique-se de possuir o Python 3 instalado e execute:
+
+```bash
+python Estoque.py
+```
+
 ## Estrutura do Projeto
 
 ```text
