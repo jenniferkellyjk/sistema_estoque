@@ -1,49 +1,23 @@
-README.md
 # Sistema de Controle de Estoque e Vendas
 
-Projeto desenvolvido em Python e refatorado para disciplina de Boas Práticas de Programação.
+Projeto desenvolvido em Python para a disciplina de Boas Práticas de Programação.
 
 ## Objetivo
 
-
-O sistema permite:
-- seleção de opção em Menu Interativo
-- cadastrar produtos
-- listar produtos
-- vender produtos
-- emitir relatório de estoque baixo
-- emitir relatório de vendas
+O sistema tem como objetivo gerenciar produtos e vendas em um pequeno estoque, permitindo o controle básico de operações comerciais.
 
 ## Funcionalidades
 
+- Cadastrar produtos (nome, preço e quantidade)
+- Listar produtos cadastrados
+- Realizar vendas com atualização de estoque
+- Emitir relatório de estoque baixo
 
-### Cadastrar Produtos
-Usuário informa:
-- Nome do produto
-- Preço
-- Quantidade
-
-### Listar Produtos
-Permite ao usuário visualizar:
-- Nome do produto - Preço - Quantidade
-
-### Vender Produtos
-Usuário informa:
-- Nome do produto
-- Quantidade
-
-### Emitir relatório de estoque baixo
-Usuário emite relatório e recebe
-- Nome do produto + quantidade em estoque
-
-### Emitir relatório de venda
--OBS: ainda não implementado
+> Observação: o relatório de vendas ainda não foi implementado.
 
 ## Estrutura do Projeto
 
-''''text
+```text
 sistema_estoque/
 ├── Estoque.py
 ├── README.md
-
-
